@@ -1,0 +1,30 @@
+{
+  "name": "mobile-bottom-nav",
+  "version": "1.0.0",
+  "description": "Reusable mobile bottom navigation bar for React apps. Router-agnostic, Tailwind-based, PWA-ready.",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "keywords": [
+    "react",
+    "mobile",
+    "bottom-nav",
+    "navigation",
+    "pwa",
+    "tailwind",
+    "reusable"
+  ],
+  "author": "Andy Hayes <andy@boundlessitsystems.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "typescript": "^7.0.2"
+  }
+}
