@@ -1,8 +1,14 @@
 # mobile-bottom-nav
 
-Reusable mobile bottom navigation bar for React apps. Router-agnostic, Tailwind-based, PWA-ready.
+<img src="screenshot.png" alt="mobile-bottom-nav — bottom navigation component demo" width="280">
 
-Synthesized from patterns across 5 production apps: scrap-sync, project-dashboard, Playbook-Task-App, Haven, and idea-foundry.
+A reusable mobile bottom navigation bar for React apps. Router-agnostic, Tailwind-based, PWA-ready.
+
+Synthesized from patterns across 5 production apps — scrap-sync, project-dashboard, Playbook-Task-App, Haven, and Idea-Foundry — each with slightly different nav needs. This is the version that handles all of them.
+
+## Why this exists
+
+Every mobile React app needs a bottom nav, and every one ends up rewriting it. The requirements are always the same: router-agnostic, hidden on desktop, safe-area aware, accessible, with optional badges and a center FAB. After building this for the fifth time, I extracted it.
 
 ## Features
 
@@ -59,74 +65,12 @@ function Layout() {
       actions={[
         { label: "Sign Out", icon: <LogOut className="w-5 h-5" />, onClick: handleSignOut },
       ]}
+      fab={{ label: "Add", icon: <Plus />, href: "/app/new" }}
     />
   );
 }
 ```
 
-### With center FAB
-
-```tsx
-<BottomNav
-  currentPath={location}
-  navigate={navigateFn}
-  items={[
-    { label: "Home", icon: <HomeIcon />, href: "/dashboard", matchPaths: ["/dashboard"] },
-    { label: "Cases", icon: <CasesIcon />, href: "/cases" },
-    { label: "Parts", icon: <PartsIcon />, href: "/parts" },
-  ]}
-  fab={{
-    label: "Ask AI",
-    icon: <SparklesIcon />,
-    onClick: () => setChatOpen(true),
-  }}
-  actions={[
-    { label: "More", icon: <MoreIcon />, onClick: () => setMoreOpen(true), ariaExpanded: moreOpen },
-  ]}
-/>
-```
-
-### Using `--mobile-nav-h` for full-screen surfaces
-
-```css
-.my-modal {
-  position: fixed;
-  bottom: var(--mobile-nav-h, 0px);
-  left: 0;
-  right: 0;
-}
-```
-
-## API
-
-### `<BottomNav>`
-
-| Prop | Type | Description |
-|------|------|-------------|
-| `currentPath` | `string` | Current route path for active-state matching |
-| `navigate` | `(href) => (e) => void` | Navigate function from your router |
-| `items` | `BottomNavItemConfig[]` | Link items (Home, New, Settings) |
-| `actions` | `BottomNavItemConfig[]` | Action buttons appended after items (Sign Out, More) |
-| `fab` | `{ label, icon, onClick, ariaLabel? }` | Optional center FAB |
-| `activeClass` | `string` | Active item color class (default: `text-primary`) |
-| `inactiveClass` | `string` | Inactive item color class (default: `text-muted-foreground`) |
-
-### `BottomNavItemConfig`
-
-| Prop | Type | Description |
-|------|------|-------------|
-| `href` | `string?` | Destination path (omit for action buttons) |
-| `onClick` | `() => void` | Click handler (for action buttons) |
-| `label` | `string` | Visible label text |
-| `icon` | `ReactNode` | Icon element (~24px) |
-| `matchPaths` | `string[]?` | Exact paths that mark item active |
-| `badgeCount` | `number?` | Numeric badge (shows pill when > 0) |
-| `badgeDot` | `boolean?` | Dot badge indicator |
-| `badgeNoun` | `string?` | SR noun for badge: "Cases, 3 urgent" |
-| `ariaLabel` | `string?` | Override accessible name |
-| `ariaExpanded` | `boolean?` | For popup triggers |
-| `ariaControls` | `string?` | Pairs with ariaExpanded |
-
 ## License
 
-MIT
+MIT — use it, fork it, ship it.
