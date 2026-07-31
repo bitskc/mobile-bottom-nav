@@ -119,7 +119,7 @@ export const BottomNavItem = forwardRef<
     </>
   );
 
-  const sharedClassName = `relative flex flex-1 flex-col items-center justify-center gap-0.5 px-2 py-1 text-[11px] font-medium transition-colors active:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring min-w-[60px] ${
+  const sharedClassName = `relative flex flex-1 flex-col items-center justify-center gap-0.5 px-1.5 py-1 text-[11px] font-medium transition-colors active:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring min-w-[52px] ${
     active ? activeClass : `${inactiveClass} hover:text-foreground`
   } ${className}`;
 
